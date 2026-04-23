@@ -49,4 +49,42 @@ A Spring Boot REST API for managing products, categories, orders, and users with
 
 ---
 
-## 📂 Project Structure
+
+---
+
+## 📡 API Endpoints
+
+### Auth
+```
+
+POST /api/auth/login
+POST /api/auth/register
+
+```
+
+### Products
+```
+
+GET    /api/products
+POST   /api/products/create-product
+POST   /api/products/bulk
+GET    /api/products/{id}
+PUT    /api/products/{id}/categories
+
+```
+
+### Categories
+```
+
+GET    /api/categories
+POST   /api/categories
+PUT    /api/categories/{id}
+DELETE /api/categories/{id}
+
+```
+
+### Orders
+```
+
+GET  /api/orders/my-orders
+POST /api/orders

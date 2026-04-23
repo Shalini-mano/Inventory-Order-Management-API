@@ -17,7 +17,7 @@ public class OrderResponse {
         this.items = items;
     }
 
-    // getters
+
 
     public Long getId() {
         return id;

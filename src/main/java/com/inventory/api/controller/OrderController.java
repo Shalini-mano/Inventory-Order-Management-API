@@ -2,7 +2,6 @@ package com.inventory.api.controller;
 import com.inventory.api.dto.OrderRequest;
 import com.inventory.api.dto.OrderResponse;
 import com.inventory.api.model.Order;
-import com.inventory.api.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -11,7 +10,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import com.inventory.api.service.OrderService;
 
-import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -29,13 +27,7 @@ public class OrderController {
         return Long.parseLong(authentication.getName());
     }
 
-    /**
-     * POST /api/orders
-     * Logic: Place a new order for the logged-in user.
-     * Role: USER
-     */
     @PostMapping("/create-orders")
-   // @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity<OrderResponse> createOrder(@RequestBody OrderRequest request) {
 
@@ -47,11 +39,6 @@ public class OrderController {
     }
 
 
-    /**
-     * GET /api/orders/my-orders
-     * Logic: Fetch all orders belonging to the current user.
-     * Role: USER
-     */
     @GetMapping("/my-orders")
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity<List<OrderResponse>> getMyOrders() {

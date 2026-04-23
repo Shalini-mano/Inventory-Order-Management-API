@@ -20,12 +20,6 @@ public class AuthController {
         this.authService = authService;
     }
 
-    /*
-        HTTP Verb? GET, PUT, POST, DELETE
-        /login endpoint
-            - email + password (LoginRequest)
-            - call the login method in the auth service
-    */
     @PostMapping("/login")
     public LoginResponse login(@Valid @RequestBody LoginRequest request)
     {

@@ -8,12 +8,6 @@ import com.inventory.api.repo.UserRepository;
 
 import java.time.LocalDateTime;
 
-/**
- * What's the purpose? create 3 User objects
- * Dependencies? UserRepository, PasswordEncoder
- *  - id, name, email, passwordHash, roles...
- *  Set up: @Component, implement CLR
- */
 @Component
 public class UserSeeder implements CommandLineRunner {
 
@@ -33,9 +27,7 @@ public class UserSeeder implements CommandLineRunner {
 
         LocalDateTime now = LocalDateTime.now();
 
-        // The order must match your User entity constructor exactly:
-        // Example: (id, username, email, passwordHash, role)
-
+        git status
         User admin = new User(
                 "admin",                            // username
                 "admin@example.com",                // email

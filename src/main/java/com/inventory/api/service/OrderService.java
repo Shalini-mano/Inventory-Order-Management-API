@@ -121,11 +121,7 @@ public class OrderService {
                 })
                 .toList();
     }
-    /*
-    @Transactional(readOnly = true)
-    public List<Order> getOrders() {
-        return orderRepository.findAll();
-    }*/
+
 
     @Transactional
     public Order cancelOrder(Long orderId) {

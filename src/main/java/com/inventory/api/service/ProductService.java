@@ -28,9 +28,6 @@ public class ProductService {
         this.categoryRepository = categoryRepository;
     }
 
-    // =========================
-    // GET PRODUCTS (FILTER + PAGINATION)
-    // =========================
     public Page<ProductResponse> getProducts(
             String name,
             String category,
@@ -57,9 +54,7 @@ public class ProductService {
     }
         return products.map(this::toResponse);
     }
-    // =========================
-    // CREATE PRODUCT
-    // =========================
+
     @Transactional
     public ProductResponse create(ProductRequest request) {
 
@@ -84,9 +79,6 @@ public class ProductService {
                 .toList();
     }
 
-    // =========================
-    // GET BY ID
-    // =========================
     public ProductResponse getById(Long id) {
 
         Product product = productRepository.findById(id)
@@ -95,9 +87,7 @@ public class ProductService {
         return toResponse(product);
     }
 
-    // =========================
-    // ASSIGN / REPLACE CATEGORIES
-    // =========================
+
     @Transactional
     public ProductResponse assignCategories(Long productId, Set<Long> categoryIds) {
 
@@ -115,9 +105,6 @@ public class ProductService {
         return toResponse(productRepository.save(product));
     }
 
-    // =========================
-    // ENTITY BUILDER (REUSABLE)
-    // =========================
     private Product buildProduct(ProductRequest request) {
 
         Product product = new Product();
@@ -137,9 +124,6 @@ public class ProductService {
         return product;
     }
 
-    // =========================
-    // DTO MAPPER
-    // =========================
     public ProductResponse toResponse(Product product) {
 
         Set<CategoryDto> categoryDtos = product.getCategories().stream()

@@ -3,11 +3,8 @@ package com.inventory.inventory_api;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@SpringBootTest(classes = com.inventory.api.InventoryApiApplication.class)
 class InventoryApiApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
+    @Test
+    void contextLoads() {}
 }

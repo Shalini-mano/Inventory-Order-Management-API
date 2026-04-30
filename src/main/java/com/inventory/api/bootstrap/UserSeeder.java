@@ -26,8 +26,6 @@ public class UserSeeder implements CommandLineRunner {
         }
 
         LocalDateTime now = LocalDateTime.now();
-
-        git status
         User admin = new User(
                 "admin",                            // username
                 "admin@example.com",                // email
